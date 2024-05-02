@@ -7,6 +7,7 @@ const ServicesCard = ({card}) => {
 // console.log(card);
 
 const {_id,title ,img, price} = card
+console.log(card);
 
 
     return (
@@ -20,7 +21,7 @@ const {_id,title ,img, price} = card
                 
                   <div className="card-actions">
                   <p className="text-[#FF3811] uppercase"> price : $ {price}</p>
-               <Link to={`/checkout/${_id}`}>
+               <Link to={`/booking/${_id}`}>
                <button className="btn bg-[#FF3811] text-white"><GrLinkNext /></button>
                </Link>
                   </div>
