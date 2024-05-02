@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import { GrLinkNext } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
 const ServicesCard = ({card}) => {
 
 // console.log(card);
 
-const {title ,img, price} = card
+const {_id,title ,img, price} = card
 
 
     return (
@@ -19,7 +20,9 @@ const {title ,img, price} = card
                 
                   <div className="card-actions">
                   <p className="text-[#FF3811] uppercase"> price : $ {price}</p>
-                    <button className="btn bg-[#FF3811] text-white"><GrLinkNext /></button>
+               <Link to={`/checkout/${_id}`}>
+               <button className="btn bg-[#FF3811] text-white"><GrLinkNext /></button>
+               </Link>
                   </div>
                 </div>
               </div>
