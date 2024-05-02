@@ -3,7 +3,7 @@ import { GrLinkNext } from "react-icons/gr";
 
 const ServicesCard = ({card}) => {
 
-console.log(card);
+// console.log(card);
 
 const {title ,img, price} = card
 
