@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 
 
-const BookingTable = ({ booking ,handleDelete}) => {
+const BookingTable = ({ booking, handleDelete, handleConform }) => {
     // console.log(booking);
 
-    const { _id, customerName, email, date, service, price, img } = booking
+    const { _id, customerName, email, date, service, price, img, status } = booking
 
- 
+
 
     return (
         <table className="table">
@@ -38,7 +38,12 @@ const BookingTable = ({ booking ,handleDelete}) => {
                 <td> {service}</td>
                 <td>{date}</td>
                 <th>
-                    <button className="btn btn-ghost btn-xs">details</button>
+                    {
+                        status === 'confirm' ? <span className="font-bold text-blue-800">confirmed</span> :
+                        
+                    <button onClick={() => handleConform(_id)} className="btn btn-ghost btn-xs">Confirm</button>
+
+                    }
                 </th>
             </tr>
         </table>

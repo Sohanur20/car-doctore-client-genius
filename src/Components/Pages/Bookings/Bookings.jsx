@@ -20,7 +20,7 @@ const Bookings = () => {
             })
 
 
-    }, [])
+    }, [url])
 
 
 
@@ -28,28 +28,56 @@ const Bookings = () => {
 
         const proceed = confirm("are you sure , you want to delete")
         if (proceed) {
-            fetch(`http://localhost:5000/bookings/${id}` ,{
-                method : "DELETE"
-               
+            fetch(`http://localhost:5000/bookings/${id}`, {
+                method: "DELETE"
+
             })
-            .then(res => res.json())
-            .then(data =>{
+                .then(res => res.json())
+                .then(data => {
 
-                console.log(data);
+                    console.log(data);
 
-                if(data.deletedCount > 0){
+                    if (data.deletedCount > 0) {
 
-                
-                    alert("delete successfully")
 
-                    const remaining = bookings.filter(booking =>booking._id !== id)
-                    console.log(remaining);
-                    setBookings(remaining)
-                }
-            })
+                        alert("delete successfully")
+
+                        const remaining = bookings.filter(booking => booking._id !== id)
+                        console.log(remaining);
+                        setBookings(remaining)
+                    }
+                })
         }
 
 
+    }
+
+
+
+    const handleConform = (id) => {
+
+        fetch(`http://localhost:5000/bookings/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': "application/json"
+            },
+            body: JSON.stringify({ status: "confirm" })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+
+                if (data.modifiedCount > 0) {
+                    // update  
+
+                    const remaining = bookings.filter(booking => booking._id !== id)
+                    const update = bookings.find(booking => booking._id === id)
+                    update.status ='confirm'
+
+                    const newBookings = [update, ...remaining]
+                    setBookings(newBookings)
+                }
+            })
     }
 
 
@@ -58,15 +86,15 @@ const Bookings = () => {
             <h2>booking {bookings.length}</h2>
 
             <div className="">
-               
-      
-                      {
-                        bookings.map(booking =><BookingTable key={booking._id} booking={booking} handleDelete={handleDelete}></BookingTable>)
-                      }
-                     
-               
-                
-              
+
+
+                {
+                    bookings.map(booking => <BookingTable key={booking._id} booking={booking} handleDelete={handleDelete} handleConform={handleConform}></BookingTable>)
+                }
+
+
+
+
             </div>
 
 
