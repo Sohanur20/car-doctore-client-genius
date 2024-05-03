@@ -4,10 +4,24 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/icons/logo.png'
 import { BsHandbag } from "react-icons/bs";
 import { FaSearch } from "react-icons/fa";
+import { useContext } from 'react';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 
 
 const Navber = () => {
+
+    const { user, logOut } = useContext(AuthContext)
+
+
+    const handleLogOut = () => {
+
+        logOut()
+            .then()
+            .catch(error => {
+                console.log(error);
+            })
+    }
 
     const navLink = <>
 
@@ -18,6 +32,16 @@ const Navber = () => {
         <li><NavLink to='/services'>Services</NavLink></li>
         <li><NavLink to='/blog'>Blog</NavLink></li>
         <li><NavLink to='/contact'>Contact</NavLink></li>
+
+        {
+            user?.email ?<>
+                <li><button> <NavLink to='/bookings'>my Bookings</NavLink></button></li>
+                <li><button onClick={handleLogOut}> <NavLink>LogOut</NavLink></button></li>
+                </>
+                : <li><NavLink to='/login'>Login</NavLink></li>
+        }
+
+
 
 
 

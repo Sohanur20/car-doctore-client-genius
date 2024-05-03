@@ -7,7 +7,7 @@ const ServicesCard = ({card}) => {
 // console.log(card);
 
 const {_id,title ,img, price} = card
-console.log(card);
+// console.log(card);
 
 
     return (

@@ -71,7 +71,7 @@ const Register = () => {
                             </div>
                             {/* Sign in Button */}
                             <button className="text-lg rounded-xl relative p-[10px] block w-full bg-indigo-600 text-white border-y-4 duration-500 overflow-hidden focus:border-indigo-500 z-50 group">
-                                Log In
+                              Register
                                 <span className="absolute opacity-0 group-hover:opacity-100 duration-100 group-hover:duration-1000 ease-out flex justify-center inset-0 items-center z-10 text-white">
                                     Let&apos;s go
                                 </span>

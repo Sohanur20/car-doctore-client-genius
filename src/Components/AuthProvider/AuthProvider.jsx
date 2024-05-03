@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { createUserWithEmailAndPassword,    onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 
 import auth from "../firebase/firebaseConfig";
@@ -35,7 +35,13 @@ const AuthProvider = ({ children }) => {
     }
 
 
+    // logout 
+    const logOut = () => {
+        true
+        return signOut(auth)
 
+
+    }
 
 
 
@@ -57,6 +63,7 @@ const AuthProvider = ({ children }) => {
         loading,
         createUser,
         signIn,
+        logOut
 
 
     }

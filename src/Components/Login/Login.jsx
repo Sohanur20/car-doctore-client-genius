@@ -43,7 +43,7 @@ console.log(signIn);
 
 
                     <div className="w-full max-w-md p-8 space-y-3 rounded-xl border bg-white   font-sans mx-auto">
-                        <h1 className="text-3xl font-bold text-center text-indigo-600">Register Now</h1>
+                        <h1 className="text-3xl font-bold text-center text-indigo-600">Login Now</h1>
                         {/* Input fields and the form started */}
                         <form onSubmit={handleLogin} action="" className="space-y-6">
                             {/* <div className="space-y-2 text-sm">
@@ -99,11 +99,11 @@ console.log(signIn);
                             </button>
                         </div>
                         <p className="text-sm text-center gap-2 flex justify-center sm:px-6 ">
-                            You have an account?
-                            <Link to='/login'>
+                            You dont have an account?
+                            <Link to='/register'>
 
                                 <button href="#" className="underline hover:text-indigo-600">
-                                    Login
+                                    register
                                 </button>
                             </Link>
                         </p>
